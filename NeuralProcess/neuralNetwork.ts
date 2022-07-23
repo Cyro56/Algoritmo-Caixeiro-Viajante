@@ -8,7 +8,7 @@ export function neuralNetwork() {
 
   while (count < trainingNumber) {
     count++;
-    storyData.push(CalculateRoute("F", "F")[0]);
+    storyData.push(CalculateRoute()[0]);
     bestDistance = Math.min(
       storyData[storyData.length - 1].distance,
       bestDistance

@@ -1,7 +1,8 @@
 import { city } from "../DataCity/dataCity.js";
 import { Perimeter } from "../DataDistance/allRoute.js";
+import { initialPoint, finalPoint } from "../utils/utils";
 
-export function CalculateRoute(initialPoint, finalPoint) {
+export function CalculateRoute() {
   let trainingData = [
     { reCalls: 0, data: [], path: [], distance: 0, mapMind: [] },
   ];

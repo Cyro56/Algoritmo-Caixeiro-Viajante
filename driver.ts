@@ -1,8 +1,8 @@
 import { neuralNetwork } from "./NeuralProcess/neuralNetwork.js";
 import { Perimeter } from "./DataDistance/allRoute.js";
-
+import { initialPoint, finalPoint } from "./utils/utils";
 let BestTrainingPath = neuralNetwork()[2];
-export function DriverRoute(initialPoint, finalPoint) {
+export function DriverRoute() {
   let city = neuralNetwork()[1];
   let gene = neuralNetwork()[0];
   let path = [initialPoint];
@@ -71,7 +71,7 @@ export function DriverRoute(initialPoint, finalPoint) {
 }
 
 try {
-  console.log(DriverRoute("F", "F"), "final result");
+  console.log(DriverRoute(), "final result");
 } catch (e) {
   console.log(e);
   console.log("Melhor resultado de treino");

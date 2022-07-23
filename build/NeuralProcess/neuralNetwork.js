@@ -9,7 +9,7 @@ function neuralNetwork() {
     let trainingNumber = 1000;
     while (count < trainingNumber) {
         count++;
-        storyData.push((0, gps_1.CalculateRoute)("F", "F")[0]);
+        storyData.push((0, gps_1.CalculateRoute)()[0]);
         bestDistance = Math.min(storyData[storyData.length - 1].distance, bestDistance);
     }
     const betterGeneration = storyData.filter((data) => data.distance <= bestDistance);

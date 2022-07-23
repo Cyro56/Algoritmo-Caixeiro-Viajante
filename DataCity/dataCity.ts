@@ -1,4 +1,4 @@
-import { EuclideanDistance } from "../../algoritimos/GPS/DataDistance/EuclideanDistance.js";
+import { EuclideanDistance } from "../DataDistance/EuclideanDistance.js";
 
 export let city = [
   {
