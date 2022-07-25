@@ -16,8 +16,13 @@ const uuid_1 = require("uuid");
 const driver_1 = require("../../driver");
 let Reciperesolver = class Reciperesolver {
     getRecipes() {
-        let newPath = { id: (0, uuid_1.v4)(), path: (0, driver_1.DriverRoute)() };
-        return [newPath];
+        let newPath = { id: (0, uuid_1.v4)(), path: (0, driver_1.DriverRoute)("A", "F") };
+        try {
+            return [newPath];
+        }
+        catch (e) {
+            return e;
+        }
     }
 };
 __decorate([

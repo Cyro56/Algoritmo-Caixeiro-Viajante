@@ -1,6 +1,6 @@
 import { CalculateRoute } from "../Training/gps";
 
-export function neuralNetwork() {
+export function neuralNetwork(initialPoint: string, finalPoint: string) {
   let storyData = [];
   let bestDistance = Infinity;
   let count = 0;
@@ -8,7 +8,7 @@ export function neuralNetwork() {
 
   while (count < trainingNumber) {
     count++;
-    storyData.push(CalculateRoute()[0]);
+    storyData.push(CalculateRoute(initialPoint, finalPoint)[0]);
     bestDistance = Math.min(
       storyData[storyData.length - 1].distance,
       bestDistance

@@ -1,17 +1,17 @@
 import { neuralNetwork } from "./NeuralProcess/neuralNetwork.js";
 import { Perimeter } from "./DataDistance/allRoute.js";
-import { initialPoint, finalPoint } from "./utils/utils";
-let BestTrainingPath = neuralNetwork()[2];
-export function DriverRoute() {
-  let city = neuralNetwork()[1];
-  let gene = neuralNetwork()[0];
-  let path = [initialPoint];
+
+export function DriverRoute(initialPoint: string, finalPoint: string) {
+  let BestTrainingPath = neuralNetwork(initialPoint, finalPoint)[2];
+  let city = neuralNetwork(initialPoint, finalPoint)[1];
+  let gene = neuralNetwork(initialPoint, finalPoint)[0];
+  let path: string[] = [initialPoint];
   let actualCity = path[path.length - 1];
   let weightParam = 1;
   let count = 0;
 
-  function isNotAllCitiesInList(path) {
-    let boolList = [];
+  function isNotAllCitiesInList(path: string[]) {
+    let boolList: boolean[] = [];
     for (let i = 0; i < city.length; i++) {
       boolList.push(path.includes(city[i].name));
     }
@@ -68,13 +68,4 @@ export function DriverRoute() {
   console.log("Distância percorrida: " + Perimeter(path));
   console.log("Tentativas: " + count);
   return path;
-}
-
-try {
-  console.log(DriverRoute(), "final result");
-} catch (e) {
-  console.log(e);
-  console.log("Melhor resultado de treino");
-  console.log("Distances Driver: " + Perimeter(BestTrainingPath));
-  console.log(BestTrainingPath);
 }

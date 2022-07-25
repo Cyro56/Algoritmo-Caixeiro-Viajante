@@ -3,12 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DriverRoute = void 0;
 const neuralNetwork_js_1 = require("./NeuralProcess/neuralNetwork.js");
 const allRoute_js_1 = require("./DataDistance/allRoute.js");
-const utils_1 = require("./utils/utils");
-let BestTrainingPath = (0, neuralNetwork_js_1.neuralNetwork)()[2];
-function DriverRoute() {
-    let city = (0, neuralNetwork_js_1.neuralNetwork)()[1];
-    let gene = (0, neuralNetwork_js_1.neuralNetwork)()[0];
-    let path = [utils_1.initialPoint];
+function DriverRoute(initialPoint, finalPoint) {
+    let BestTrainingPath = (0, neuralNetwork_js_1.neuralNetwork)(initialPoint, finalPoint)[2];
+    let city = (0, neuralNetwork_js_1.neuralNetwork)(initialPoint, finalPoint)[1];
+    let gene = (0, neuralNetwork_js_1.neuralNetwork)(initialPoint, finalPoint)[0];
+    let path = [initialPoint];
     let actualCity = path[path.length - 1];
     let weightParam = 1;
     let count = 0;
@@ -19,7 +18,7 @@ function DriverRoute() {
         }
         return boolList.includes(false);
     }
-    while (isNotAllCitiesInList(path) || path[path.length - 1] != utils_1.finalPoint) {
+    while (isNotAllCitiesInList(path) || path[path.length - 1] != finalPoint) {
         let nextCity = "";
         let minDistweight = Infinity;
         for (let i = 0; i < city.find((data) => data.name === actualCity).connections.length; i++) {
@@ -40,11 +39,11 @@ function DriverRoute() {
             .connections.find((data) => data.name === nextCity).weight +=
             weightParam * factor;
         actualCity = nextCity;
-        const finalPointErr = path[path.length - 1] != utils_1.finalPoint && path.length > city.length * 2;
+        const finalPointErr = path[path.length - 1] != finalPoint && path.length > city.length * 2;
         if (finalPointErr) {
             count++;
-            path = [utils_1.initialPoint];
-            actualCity = utils_1.initialPoint;
+            path = [initialPoint];
+            actualCity = initialPoint;
         }
     }
     if ((0, allRoute_js_1.Perimeter)(BestTrainingPath) < (0, allRoute_js_1.Perimeter)(path)) {
@@ -55,12 +54,3 @@ function DriverRoute() {
     return path;
 }
 exports.DriverRoute = DriverRoute;
-try {
-    console.log(DriverRoute(), "final result");
-}
-catch (e) {
-    console.log(e);
-    console.log("Melhor resultado de treino");
-    console.log("Distances Driver: " + (0, allRoute_js_1.Perimeter)(BestTrainingPath));
-    console.log(BestTrainingPath);
-}

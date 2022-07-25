@@ -7,7 +7,12 @@ import { DriverRoute } from "../../driver";
 export class Reciperesolver {
   @Query(() => [CityPath])
   getRecipes(): Array<CityPath> {
-    let newPath = { id: uuidv4(), path: DriverRoute() };
-    return [newPath];
+    let newPath = { id: uuidv4(), path: DriverRoute("A", "F") };
+
+    try {
+      return [newPath];
+    } catch (e) {
+      return e;
+    }
   }
 }

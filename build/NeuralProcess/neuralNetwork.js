@@ -2,14 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.neuralNetwork = void 0;
 const gps_1 = require("../Training/gps");
-function neuralNetwork() {
+function neuralNetwork(initialPoint, finalPoint) {
     let storyData = [];
     let bestDistance = Infinity;
     let count = 0;
     let trainingNumber = 1000;
     while (count < trainingNumber) {
         count++;
-        storyData.push((0, gps_1.CalculateRoute)()[0]);
+        storyData.push((0, gps_1.CalculateRoute)(initialPoint, finalPoint)[0]);
         bestDistance = Math.min(storyData[storyData.length - 1].distance, bestDistance);
     }
     const betterGeneration = storyData.filter((data) => data.distance <= bestDistance);
