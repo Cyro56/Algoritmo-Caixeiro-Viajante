@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Reciperesolver = void 0;
 const type_graphql_1 = require("type-graphql");
@@ -15,8 +18,9 @@ const city_1 = require("../entities/city");
 const uuid_1 = require("uuid");
 const driver_1 = require("../../driver");
 let Reciperesolver = class Reciperesolver {
-    getRecipes() {
-        let newPath = { id: (0, uuid_1.v4)(), path: (0, driver_1.DriverRoute)("A", "F") };
+    getRecipes(initial, final) {
+        console.log("debug");
+        let newPath = { id: (0, uuid_1.v4)(), path: (0, driver_1.DriverRoute)(initial, final) };
         try {
             return [newPath];
         }
@@ -27,8 +31,10 @@ let Reciperesolver = class Reciperesolver {
 };
 __decorate([
     (0, type_graphql_1.Query)(() => [city_1.CityPath]),
+    __param(0, (0, type_graphql_1.Arg)("initial")),
+    __param(1, (0, type_graphql_1.Arg)("final")),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Array)
 ], Reciperesolver.prototype, "getRecipes", null);
 Reciperesolver = __decorate([

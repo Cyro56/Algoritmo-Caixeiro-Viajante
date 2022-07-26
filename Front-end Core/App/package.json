@@ -10,8 +10,12 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.17",
+    "@apollo/react-hooks": "^3.0.0",
+    "graphql": "^16.5.0",
     "react": "18.0.0",
-    "react-native": "0.69.2"
+    "react-native": "0.69.2",
+    "react-query": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
