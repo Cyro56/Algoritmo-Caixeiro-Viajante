@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CityPath = void 0;
+exports.SimulationResponse = exports.SimulationValues = exports.CityPath = void 0;
 const type_graphql_1 = require("type-graphql");
 let CityPath = class CityPath {
 };
@@ -25,3 +25,67 @@ CityPath = __decorate([
     (0, type_graphql_1.ObjectType)()
 ], CityPath);
 exports.CityPath = CityPath;
+let SimulationValues = class SimulationValues {
+};
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationValues.prototype, "maxValue", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationValues.prototype, "minValue", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationValues.prototype, "maxParcel", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationValues.prototype, "minParcel", void 0);
+SimulationValues = __decorate([
+    (0, type_graphql_1.ObjectType)()
+], SimulationValues);
+exports.SimulationValues = SimulationValues;
+let SimulationResponse = class SimulationResponse {
+};
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], SimulationResponse.prototype, "id", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], SimulationResponse.prototype, "response", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationResponse.prototype, "loanValue", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationResponse.prototype, "loanTerm", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationResponse.prototype, "loanValueByTerm", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationResponse.prototype, "loanAmountValue", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationResponse.prototype, "loanFee", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationResponse.prototype, "loanFeeAmountValue", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], SimulationResponse.prototype, "proposalType", void 0);
+SimulationResponse = __decorate([
+    (0, type_graphql_1.ObjectType)()
+], SimulationResponse);
+exports.SimulationResponse = SimulationResponse;

@@ -1,39 +1,20 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = __importStar(require("react"));
+const react_1 = __importDefault(require("react"));
 const react_native_1 = require("react-native");
 const client_1 = require("@apollo/client");
 const Queries_1 = require("../GraphQL/Queries");
 function GetPath() {
     const { error, loading, data } = (0, client_1.useQuery)(Queries_1.getPath);
-    (0, react_1.useEffect)(() => {
-        console.log(data, 'data');
-        console.log(loading, 'loading');
-        console.log(error, 'error');
-    }, [data, loading, error]);
-    return <react_native_1.Text></react_native_1.Text>;
+    try {
+        console.log('LOADING: ' + loading);
+        return <react_native_1.Text>{data === null || data === void 0 ? void 0 : data.getRecipes[0].path}</react_native_1.Text>;
+    }
+    catch (_a) {
+        return <react_native_1.Text>{JSON.stringify(error, null, 2)}</react_native_1.Text>;
+    }
 }
 exports.default = GetPath;

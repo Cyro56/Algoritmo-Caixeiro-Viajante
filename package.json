@@ -13,7 +13,8 @@
     "graphql": "^15.8.0",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^1.1.1",
-    "uuidv4": "^6.2.13"
+    "uuidv4": "^6.2.13",
+    "vanilla-masker": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.3",

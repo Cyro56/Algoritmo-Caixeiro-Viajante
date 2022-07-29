@@ -4,7 +4,7 @@ exports.getPath = void 0;
 const client_1 = require("@apollo/client");
 exports.getPath = (0, client_1.gql) `
   query {
-    getRecipes {
+    getRecipes(initial: "B", final: "G") {
       id
       path
     }

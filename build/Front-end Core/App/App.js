@@ -7,7 +7,6 @@ const react_1 = __importDefault(require("react"));
 const client_1 = require("@apollo/client");
 const getPath_1 = __importDefault(require("./component/getPath"));
 const link = new client_1.HttpLink({ uri: 'http://localhost:4000/graphql' });
-console.log(link, 'link');
 const client = new client_1.ApolloClient({
     cache: new client_1.InMemoryCache(),
     link: link,
