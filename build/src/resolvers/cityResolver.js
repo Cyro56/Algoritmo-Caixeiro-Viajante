@@ -30,14 +30,6 @@ let Reciperesolver = class Reciperesolver {
             return e;
         }
     }
-    getRangeValues() {
-        try {
-            return [data_1.simulationData];
-        }
-        catch (e) {
-            return e;
-        }
-    }
     getValidateInput(value, term, ProposalType) {
         const response = (0, validateInput_1.validateInputValue)(value, data_1.simulationData.minValue, data_1.simulationData.maxValue);
         let newValidate = {
@@ -50,6 +42,10 @@ let Reciperesolver = class Reciperesolver {
             loanFee: data_1.simulationData.loanFee,
             loanFeeAmountValue: 1.5,
             proposalType: "REQUESTED_PROPOSAL",
+            maxValue: 100000,
+            minValue: 5000,
+            maxParcel: 24,
+            minParcel: 1,
         };
         try {
             return newValidate;
@@ -67,12 +63,6 @@ __decorate([
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Array)
 ], Reciperesolver.prototype, "getRecipes", null);
-__decorate([
-    (0, type_graphql_1.Query)(() => [city_1.SimulationValues]),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Object)
-], Reciperesolver.prototype, "getRangeValues", null);
 __decorate([
     (0, type_graphql_1.Query)(() => city_1.SimulationResponse),
     __param(0, (0, type_graphql_1.Arg)("value")),

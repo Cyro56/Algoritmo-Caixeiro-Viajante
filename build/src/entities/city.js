@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SimulationResponse = exports.SimulationValues = exports.CityPath = void 0;
+exports.SimulationResponse = exports.CityPath = void 0;
 const type_graphql_1 = require("type-graphql");
 let CityPath = class CityPath {
 };
@@ -25,28 +25,6 @@ CityPath = __decorate([
     (0, type_graphql_1.ObjectType)()
 ], CityPath);
 exports.CityPath = CityPath;
-let SimulationValues = class SimulationValues {
-};
-__decorate([
-    (0, type_graphql_1.Field)(),
-    __metadata("design:type", Number)
-], SimulationValues.prototype, "maxValue", void 0);
-__decorate([
-    (0, type_graphql_1.Field)(),
-    __metadata("design:type", Number)
-], SimulationValues.prototype, "minValue", void 0);
-__decorate([
-    (0, type_graphql_1.Field)(),
-    __metadata("design:type", Number)
-], SimulationValues.prototype, "maxParcel", void 0);
-__decorate([
-    (0, type_graphql_1.Field)(),
-    __metadata("design:type", Number)
-], SimulationValues.prototype, "minParcel", void 0);
-SimulationValues = __decorate([
-    (0, type_graphql_1.ObjectType)()
-], SimulationValues);
-exports.SimulationValues = SimulationValues;
 let SimulationResponse = class SimulationResponse {
 };
 __decorate([
@@ -85,6 +63,22 @@ __decorate([
     (0, type_graphql_1.Field)(),
     __metadata("design:type", String)
 ], SimulationResponse.prototype, "proposalType", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationResponse.prototype, "maxValue", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationResponse.prototype, "minValue", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationResponse.prototype, "maxParcel", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], SimulationResponse.prototype, "minParcel", void 0);
 SimulationResponse = __decorate([
     (0, type_graphql_1.ObjectType)()
 ], SimulationResponse);

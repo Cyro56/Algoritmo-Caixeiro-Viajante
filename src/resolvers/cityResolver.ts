@@ -26,15 +26,6 @@ export class Reciperesolver {
     }
   }
 
-  @Query(() => [SimulationValues])
-  getRangeValues(): Array<SimulationValues> | unknown {
-    try {
-      return [simulationData];
-    } catch (e) {
-      return e;
-    }
-  }
-
   @Query(() => SimulationResponse)
   getValidateInput(
     @Arg("value") value: number,
@@ -57,6 +48,10 @@ export class Reciperesolver {
       loanFee: simulationData.loanFee,
       loanFeeAmountValue: 1.5,
       proposalType: "REQUESTED_PROPOSAL",
+      maxValue: 100000,
+      minValue: 5000,
+      maxParcel: 24,
+      minParcel: 1,
     };
     try {
       return newValidate;

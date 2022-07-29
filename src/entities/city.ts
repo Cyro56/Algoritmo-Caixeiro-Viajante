@@ -9,18 +9,6 @@ export class CityPath {
 }
 
 @ObjectType()
-export class SimulationValues {
-  @Field()
-  maxValue!: number;
-  @Field()
-  minValue!: number;
-  @Field()
-  maxParcel!: number;
-  @Field()
-  minParcel!: number;
-}
-
-@ObjectType()
 export class SimulationResponse {
   @Field()
   id: string;
@@ -40,4 +28,12 @@ export class SimulationResponse {
   loanFeeAmountValue: number;
   @Field()
   proposalType: string;
+  @Field()
+  maxValue!: number;
+  @Field()
+  minValue!: number;
+  @Field()
+  maxParcel!: number;
+  @Field()
+  minParcel!: number;
 }
