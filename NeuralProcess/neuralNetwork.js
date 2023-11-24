@@ -4,7 +4,7 @@ export function neuralNetwork(initialPoint, finalPoint) {
 	let storyData = [];
 	let bestDistance = Infinity;
 	let count = 0;
-	let trainingNumber = 1500;
+	let trainingNumber = 1000;
 
 	while (count < trainingNumber) {
 		count++;
