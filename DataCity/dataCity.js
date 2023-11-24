@@ -17,7 +17,6 @@ const readCityData = async () => {
 const initializeCityData = async () => {
 	try {
 		const city = await readCityData();
-
 		const removeSelfConnections = () => {
 			city.forEach((point) => {
 				point.connections = point.connections.filter(
@@ -31,6 +30,7 @@ const initializeCityData = async () => {
 				const connection = city.find(
 					(data) => data.name === city[k].connections[j].name
 				);
+
 				city[k].connections[j].dist = EuclideanDistance(
 					city[k].x,
 					city[k].y,

@@ -1,10 +1,11 @@
 import { CalculateRoute } from '../Training/gps.js';
 
 export function neuralNetwork(initialPoint, finalPoint) {
+	console.log(`Init Neural Training`);
 	let storyData = [];
 	let bestDistance = Infinity;
 	let count = 0;
-	let trainingNumber = 1000;
+	let trainingNumber = 20;
 
 	while (count < trainingNumber) {
 		count++;
@@ -13,6 +14,7 @@ export function neuralNetwork(initialPoint, finalPoint) {
 			storyData[storyData.length - 1].distance,
 			bestDistance
 		);
+		console.log(`training ${(count * 100) / trainingNumber} % ...`);
 	}
 
 	const betterGeneration = storyData.filter(

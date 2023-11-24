@@ -56,13 +56,14 @@ export function DriverRoute(initialPoint, finalPoint) {
 }
 
 try {
+	console.time('final result');
 	console.log(
 		DriverRoute(
-			'd9952994-af0c-40a9-ad37-a31b490e2f72',
-			'5ae25725-3114-4020-8ce1-dfc533bf51bb'
-		),
-		'final result'
+			'f67e3718-53db-4ab6-b118-b1a2858dd6f0',
+			'9d1ee2f7-e61a-4317-acb5-4447dc6645f5'
+		)
 	);
+	console.timeEnd('final result');
 } catch (e) {
 	console.log(e);
 	console.log('Melhor resultado de treino');
