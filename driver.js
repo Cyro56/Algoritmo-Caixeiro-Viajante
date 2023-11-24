@@ -1,6 +1,7 @@
 import { neuralNetwork } from './NeuralProcess/neuralNetwork.js';
+import fs from 'fs';
 import { Perimeter } from './DataDistance/allRoute.js';
-
+import { city } from './DataCity/dataCity.js';
 export function DriverRoute(initialPoint, finalPoint) {
 	let BestTrainingPath = neuralNetwork(initialPoint, finalPoint)[1];
 	let city = neuralNetwork(initialPoint, finalPoint)[0];
@@ -54,16 +55,27 @@ export function DriverRoute(initialPoint, finalPoint) {
 	console.log('Tentativas: ' + count);
 	return path;
 }
-
+// show data
 try {
 	console.time('final result');
-	console.log(
-		DriverRoute(
-			'f67e3718-53db-4ab6-b118-b1a2858dd6f0',
-			'9d1ee2f7-e61a-4317-acb5-4447dc6645f5'
-		)
+	const result = DriverRoute(
+		'f67e3718-53db-4ab6-b118-b1a2858dd6f0',
+		'9d1ee2f7-e61a-4317-acb5-4447dc6645f5'
 	);
 	console.timeEnd('final result');
+	const responseArr = [];
+	result.forEach((res) => {
+		const point = city.find((local) => local.name === res);
+		responseArr.push([point.x, point.y]);
+	});
+
+	const formattedResponse = `[\n${responseArr
+		.map((point) => `  [${point.join(', ')}],`)
+		.join('\n')}\n]`;
+
+	fs.writeFileSync('./response.txt', formattedResponse, 'utf-8');
+
+	console.log('Arquivo de texto gerado com sucesso!');
 } catch (e) {
 	console.log(e);
 	console.log('Melhor resultado de treino');
