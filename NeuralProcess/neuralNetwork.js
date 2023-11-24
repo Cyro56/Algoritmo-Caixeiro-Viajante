@@ -1,11 +1,10 @@
 import { CalculateRoute } from '../Training/gps.js';
 
 export function neuralNetwork(initialPoint, finalPoint) {
-	console.log(initialPoint, 'Here');
 	let storyData = [];
 	let bestDistance = Infinity;
 	let count = 0;
-	let trainingNumber = 1000;
+	let trainingNumber = 1500;
 
 	while (count < trainingNumber) {
 		count++;
@@ -22,9 +21,7 @@ export function neuralNetwork(initialPoint, finalPoint) {
 
 	const bestMapMind = betterGeneration[0].mapMind;
 
-	const bestGenes = betterGeneration[0].data;
-
 	const bestTrainingPath = betterGeneration[0].path;
 
-	return [bestGenes, bestMapMind, bestTrainingPath];
+	return [bestMapMind, bestTrainingPath];
 }
