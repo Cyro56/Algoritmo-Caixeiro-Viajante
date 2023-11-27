@@ -3,8 +3,9 @@ import fs from 'fs';
 import { Perimeter } from './DataDistance/allRoute.js';
 import { city } from './DataCity/dataCity.js';
 export function DriverRoute(initialPoint, finalPoint) {
-	let BestTrainingPath = neuralNetwork(initialPoint, finalPoint)[1];
-	let city = neuralNetwork(initialPoint, finalPoint)[0];
+	const neuralResult = neuralNetwork(initialPoint, finalPoint);
+	let BestTrainingPath = neuralResult[1];
+	let city = neuralResult[0];
 	let path = [initialPoint];
 	let actualCity = path[path.length - 1];
 	let weightParam = 1;

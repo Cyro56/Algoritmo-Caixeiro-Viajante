@@ -2,7 +2,6 @@ import { city } from '../DataCity/dataCity.js';
 import { Perimeter } from '../DataDistance/allRoute.js';
 
 export function CalculateRoute(initialPoint, finalPoint) {
-	console.log('init Calculate Route');
 	let trainingData = [
 		{ reCalls: 0, data: [], path: [], distance: 0, mapMind: [] },
 	];
@@ -44,10 +43,9 @@ export function CalculateRoute(initialPoint, finalPoint) {
 		actualCity = nextCity;
 
 		const finalPointErr =
-			path[path.length - 1] != finalPoint && path.length > city.length * 2;
+			path[path.length - 1] != finalPoint && path.length > city.length * 1.5;
 
 		if (finalPointErr) {
-			console.log('Recalculando ...');
 			Recalculando++;
 			path = [initialPoint];
 			actualCity = initialPoint;
